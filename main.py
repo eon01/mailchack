@@ -41,7 +41,7 @@ logger.addHandler(handler)
 mc_client = MailChimp(mc_user, mc_token)
 
 try:
-    mc_members = mc_client.lists.members.all(mc_id, get_all=False, fields="members.email_address,members.timestamp_signup")
+    mc_members = mc_client.lists.members.all(mc_id, get_all=True, fields="members.email_address,members.timestamp_signup")
 except requests.exceptions.ConnectionError as e:
     logger.error(repr(e))
     exit(1)
